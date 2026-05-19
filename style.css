@@ -1,0 +1,432 @@
+/* --- GLOBAL TEMİZLİK VE CAPCANLI RENK PALETİ --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+:root {
+    --neon-pink: #ff007f;      /* Ana Vurgu Rengi */
+    --vibrant-purple: #7f00ff; /* İkincil Canlı Renk */
+    --neon-cyan: #00f5d4;      /* Butonlar ve Çerçeveler */
+    --bg-light: #fff5f8;       /* Hafif Pembe-Krem Enerjik Arka Plan */
+    --dark-text: #1a1520;      /* Yazı Rengi */
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--dark-text);
+    overflow-x: hidden;
+}
+
+/* --- CAPCANLI GİRİŞ EKRANI (INTRO) --- */
+#intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Neon renk geçişli gradyan arka plan */
+    background: linear-gradient(135deg, var(--neon-pink), var(--vibrant-purple), #ff9f1c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: fadeOut 1.2s ease forwards 3s; 
+}
+
+.intro-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro-text {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid var(--neon-cyan);
+    display: inline-block;
+    animation: blinkCursor 0.75s step-end infinite;
+    text-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
+}
+
+.intro-sub {
+    color: white;
+    margin-top: 15px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes blinkCursor {
+    from, to { border-color: transparent }
+    50% { border-color: var(--neon-cyan); }
+}
+
+/* --- HEADER / NAVBAR --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 8%;
+    background-color: white;
+    box-shadow: 0 4px 20px rgba(255, 0, 127, 0.05);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--vibrant-purple);
+    background: linear-gradient(to right, var(--neon-pink), var(--vibrant-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.insta-top-btn {
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: 0.3s ease;
+}
+
+.contact-top-btn {
+    text-decoration: none;
+    color: white;
+    background-color: #25d366;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: 0.3s ease;
+}
+
+.insta-top-btn:hover, .contact-top-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* --- KATEGORİ BUTONLARI --- */
+.container {
+    padding: 40px 8%;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.filter-btn {
+    background-color: white;
+    border: 2px solid var(--vibrant-purple);
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--vibrant-purple);
+    transition: 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--vibrant-purple);
+    color: white;
+    box-shadow: 0 5px 15px rgba(127, 0, 255, 0.3);
+}
+
+/* --- MASAÜSTÜ ÜRÜN KARTLARI (SABİT 3'LÜ GRID) --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 15px;
+    /* İstediğin 2px şık renkli çerçeve */
+    border: 2px solid #ffd0e2; 
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--neon-pink);
+    box-shadow: 0 10px 25px rgba(255, 0, 127, 0.15);
+}
+
+.product-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1; 
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.product-card div {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.product-card h3 {
+    color: var(--vibrant-purple);
+    font-size: 1.3rem;
+}
+
+.product-card p {
+    color: var(--neon-pink);
+    font-weight: 900;
+    margin-top: 5px;
+}
+
+/* --- POP-UP MODAL --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 11000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 21, 32, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 8% auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 750px;
+    border-radius: 25px;
+    border: 3px solid var(--neon-pink);
+    position: relative;
+    animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-modal {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    font-size: 2.2rem;
+    cursor: pointer;
+    color: #bbb;
+    transition: 0.3s;
+}
+
+.close-modal:hover { color: var(--neon-pink); }
+
+.modal-body {
+    display: flex;
+    gap: 30px;
+    margin-top: 15px;
+}
+
+#modalImage {
+    width: 100%;
+    max-width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+.modal-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-info h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--vibrant-purple);
+}
+
+.modal-info p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--neon-pink);
+    margin-bottom: 25px;
+}
+
+.buy-btn {
+    display: inline-block;
+    padding: 15px;
+    background-color: #25d366; 
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: 0.3s ease;
+}
+
+.buy-btn:hover { background-color: #1cbd55; transform: translateY(-2px); }
+
+/* --- FOOTER (AylizDev Özel Tasarım) --- */
+.footer {
+    padding: 40px 10px;
+    text-align: center;
+    background: white;
+    margin-top: 80px;
+    border-top: 2px solid #ffd0e2;
+}
+
+.footer p {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-links a {
+    font-size: 1.8rem;
+    color: #888;
+    transition: 0.3s;
+}
+
+.social-links a:hover { transform: translateY(-5px); }
+.social-links a.li:hover { color: #0077b5; }
+.social-links a.gh:hover { color: #222; }
+.social-links a.ig:hover { color: #e1306c; }
+
+
+/* --- TAM MOBİL UYUMLULUK (CANDLE STİLİ: BÜYÜK 2'Lİ TAM KARE KARTLAR) --- */
+@media (max-width: 600px) {
+    
+    /* Kategori Butonları Ray Sistemi */
+    .filter-buttons {
+        justify-content: flex-start; 
+        overflow-x: auto;            
+        white-space: nowrap;         
+        padding: 0 15px 15px 15px;   
+        margin-left: -5%;            
+        margin-right: -5%;
+        -webkit-overflow-scrolling: touch; 
+    }
+
+    .filter-btn {
+        flex: 0 0 auto;              
+        padding: 8px 16px;           
+        font-size: 0.85rem;
+    }
+
+    .filter-buttons::-webkit-scrollbar { display: none; }
+
+    /* TAM CANDLE SİTESİ GÖRÜNÜMÜ: Yan yana 2 adet dolgun, büyük ürün kartı */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 12px; 
+        margin-top: 15px;
+    }
+
+    /* Kartın Çerçeveli ve Tam Kare Kalmasını Sağlayan Sihirli Ayar */
+    .product-card {
+        padding: 6px; 
+        border-radius: 14px;
+        border: 2px solid #ffd0e2; /* Mobilde de 2px renkli çerçeve aktif */
+        aspect-ratio: 1 / 1 !important; /* KARTIN DIŞINI KARE YAPAR */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+        overflow: hidden;
+    }
+
+    .product-card img {
+        width: 100%;
+        height: 70% !important; /* Görsel alanını büyüttük (Candle esintisi) */
+        object-fit: cover;     
+        border-radius: 10px;   
+        aspect-ratio: auto !important; 
+    }
+
+    .product-card div {
+        margin-top: 4px !important; 
+        padding: 0 4px !important;
+        height: 25%; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+    }
+
+    /* Yazı Optimizasyonu */
+    .product-card h3 {
+        font-size: 0.8rem !important; 
+        font-weight: 700;
+        line-height: 1.2;
+        white-space: nowrap;          
+        overflow: hidden;             
+        text-overflow: ellipsis; 
+    }
+    
+    .product-card p {
+        font-size: 0.8rem !important; 
+        margin-top: 2px !important;
+    }
+
+    /* Diğer Mobil Alanlar */
+    .header {
+        padding: 20px 5%;
+        flex-direction: column;       
+        gap: 12px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .logo { font-size: 1.5rem; }
+    .intro-text { font-size: 2rem; }
+    
+    .modal-content {
+        margin: 20% auto;
+        padding: 20px;
+        width: 92%;
+    }
+    
+    .modal-body { flex-direction: column; gap: 15px; }
+    #modalImage { max-width: 100%; height: 220px; }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibrant Scents & Crafts | Colorful Joy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div id="intro-overlay">
+        <div class="intro-content">
+            <h1 class="intro-text">VIBRANT ART</h1>
+            <p class="intro-sub">Colorful scents & neon designs to brighten your life!</p>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo">VIBRANT ART</div>
+        <nav class="nav-links">
+            <a href="https://www.instagram.com/ayliz.dev" target="_blank" class="insta-top-btn">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://wa.me/905xxxxxxxxx" target="_blank" class="contact-top-btn">
+                <i class="fab fa-whatsapp"></i> Order WhatsApp
+            </a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterProducts('all')">⚡ All Products</button>
+            <button class="filter-btn" onclick="filterProducts('incense')">🔮 Incense Sticks</button>
+            <button class="filter-btn" onclick="filterProducts('ash')">🌈 Ash Catchers</button>
+            <button class="filter-btn" onclick="filterProducts('holder')">✨ Candle Holders</button>
+        </div>
+
+        <div id="product-list" class="product-grid"></div>
+    </main>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <img id="modalImage" src="" alt="Product Detail">
+                <div class="modal-info">
+                    <h2 id="modalName">Product Name</h2>
+                    <p id="modalDesc">Product description goes here...</p>
+                    <span id="modalPrice" class="price">$0.00</span>
+                    <a id="modalWhatsApp" href="" class="buy-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>By Designer <strong>AylizDev</strong></p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/ayliz-azaklı-74579b318/" target="_blank" class="li"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/merveayliz" target="_blank" class="gh"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/ayliz.dev" target="_blank" class="ig"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
