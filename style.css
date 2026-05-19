@@ -1,4 +1,4 @@
-/* --- GLOBAL TEMİZLİK VE CAPCANLI RENK PALETİ --- */
+/* --- GLOBAL TEMİZLİK VE RENK PALETİ --- */
 * {
     margin: 0;
     padding: 0;
@@ -7,33 +7,31 @@
 }
 
 :root {
-    --neon-pink: #ff007f;      /* Ana Vurgu Rengi */
-    --vibrant-purple: #7f00ff; /* İkincil Canlı Renk */
-    --neon-cyan: #00f5d4;      /* Butonlar ve Çerçeveler */
-    --bg-light: #fff5f8;       /* Hafif Pembe-Krem Enerjik Arka Plan */
-    --dark-text: #1a1520;      /* Yazı Rengi */
+    --clay-brown: #8e7355;      /* Ana Vurgu Rengi */
+    --deep-charcoal: #2d2a26;  /* Koyu Mistik Renk */
+    --soft-cream: #f9f6f0;     /* Arka Plan Rengi */
+    --warm-sand: #e6dfd3;      /* Kartlar ve Butonlar İçin */
 }
 
 body {
-    background-color: var(--bg-light);
-    color: var(--dark-text);
+    background-color: var(--soft-cream);
+    color: var(--deep-charcoal);
     overflow-x: hidden;
 }
 
-/* --- CAPCANLI GİRİŞ EKRANI (INTRO) --- */
+/* --- MİSTİK GİRİŞ EKRANI (INTRO) --- */
 #intro-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Neon renk geçişli gradyan arka plan */
-    background: linear-gradient(135deg, var(--neon-pink), var(--vibrant-purple), #ff9f1c);
+    background: var(--deep-charcoal);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 10000;
-    animation: fadeOut 1.2s ease forwards 3s; 
+    animation: fadeOut 1.2s ease forwards 3.5s; /* 3.5 sn sonra kaybolur */
 }
 
 .intro-content {
@@ -44,24 +42,22 @@ body {
 }
 
 .intro-text {
-    color: white;
-    font-size: 3.5rem;
-    font-weight: 900;
-    letter-spacing: 5px;
+    color: var(--soft-cream);
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 6px;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 4px solid var(--neon-cyan);
+    border-right: 3px solid var(--clay-brown);
     display: inline-block;
     animation: blinkCursor 0.75s step-end infinite;
-    text-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
 }
 
 .intro-sub {
-    color: white;
+    color: #a8a297;
     margin-top: 15px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 1px;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
 }
 
 @keyframes fadeOut {
@@ -70,7 +66,7 @@ body {
 
 @keyframes blinkCursor {
     from, to { border-color: transparent }
-    50% { border-color: var(--neon-cyan); }
+    50% { border-color: var(--clay-brown); }
 }
 
 /* --- HEADER / NAVBAR --- */
@@ -80,50 +76,30 @@ body {
     align-items: center;
     padding: 25px 8%;
     background-color: white;
-    box-shadow: 0 4px 20px rgba(255, 0, 127, 0.05);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.03);
 }
 
 .logo {
-    font-size: 1.8rem;
-    font-weight: 900;
-    letter-spacing: 2px;
-    color: var(--vibrant-purple);
-    background: linear-gradient(to right, var(--neon-pink), var(--vibrant-purple));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.nav-links {
-    display: flex;
-    gap: 15px;
-}
-
-.insta-top-btn {
-    text-decoration: none;
-    color: white;
-    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-    padding: 10px 18px;
-    border-radius: 25px;
+    font-size: 1.6rem;
     font-weight: 700;
-    font-size: 0.9rem;
-    transition: 0.3s ease;
+    letter-spacing: 3px;
+    color: var(--deep-charcoal);
 }
 
 .contact-top-btn {
     text-decoration: none;
     color: white;
-    background-color: #25d366;
-    padding: 10px 18px;
-    border-radius: 25px;
+    background-color: var(--clay-brown);
+    padding: 10px 20px;
+    border-radius: 20px;
     font-weight: 700;
     font-size: 0.9rem;
     transition: 0.3s ease;
 }
 
-.insta-top-btn:hover, .contact-top-btn:hover {
+.contact-top-btn:hover {
+    background-color: var(--deep-charcoal);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 /* --- KATEGORİ BUTONLARI --- */
@@ -136,30 +112,30 @@ body {
     justify-content: center;
     gap: 15px;
     margin-bottom: 50px;
+    flex-wrap: wrap;
 }
 
 .filter-btn {
-    background-color: white;
-    border: 2px solid var(--vibrant-purple);
+    background-color: var(--warm-sand);
+    border: none;
     padding: 12px 25px;
     border-radius: 25px;
     cursor: pointer;
     font-weight: 700;
-    color: var(--vibrant-purple);
+    color: var(--deep-charcoal);
     transition: 0.3s ease;
 }
 
 .filter-btn:hover, .filter-btn.active {
-    background-color: var(--vibrant-purple);
+    background-color: var(--clay-brown);
     color: white;
-    box-shadow: 0 5px 15px rgba(127, 0, 255, 0.3);
 }
 
-/* --- MASAÜSTÜ ÜRÜN KARTLARI (SABİT 3'LÜ GRID) --- */
+/* --- ÜRÜN KARTLARI (GRID) --- */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 35px;
 }
 
 .product-card {
@@ -167,39 +143,21 @@ body {
     border-radius: 20px;
     overflow: hidden;
     padding: 15px;
-    /* İstediğin 2px şık renkli çerçeve */
-    border: 2px solid #ffd0e2; 
+    box-shadow: 0 5px 20px rgba(0,0,0,0.02);
     cursor: pointer;
     transition: 0.3s ease;
 }
 
 .product-card:hover {
     transform: translateY(-8px);
-    border-color: var(--neon-pink);
-    box-shadow: 0 10px 25px rgba(255, 0, 127, 0.15);
+    box-shadow: 0 10px 25px rgba(142, 115, 85, 0.1);
 }
 
 .product-card img {
     width: 100%;
-    aspect-ratio: 1 / 1; 
+    height: 280px;
     object-fit: cover;
     border-radius: 15px;
-}
-
-.product-card div {
-    text-align: center;
-    margin-top: 15px;
-}
-
-.product-card h3 {
-    color: var(--vibrant-purple);
-    font-size: 1.3rem;
-}
-
-.product-card p {
-    color: var(--neon-pink);
-    font-weight: 900;
-    margin-top: 5px;
 }
 
 /* --- POP-UP MODAL --- */
@@ -211,7 +169,7 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(26, 21, 32, 0.6);
+    background-color: rgba(0,0,0,0.5);
     backdrop-filter: blur(5px);
 }
 
@@ -222,7 +180,6 @@ body {
     width: 90%;
     max-width: 750px;
     border-radius: 25px;
-    border: 3px solid var(--neon-pink);
     position: relative;
     animation: slideUp 0.4s ease;
 }
@@ -236,17 +193,18 @@ body {
     position: absolute;
     right: 25px;
     top: 20px;
-    font-size: 2.2rem;
+    font-size: 2rem;
     cursor: pointer;
-    color: #bbb;
+    color: #999;
     transition: 0.3s;
 }
 
-.close-modal:hover { color: var(--neon-pink); }
+.close-modal:hover { color: var(--deep-charcoal); }
 
 .modal-body {
     display: flex;
     gap: 30px;
+    flex-wrap: wrap;
     margin-top: 15px;
 }
 
@@ -266,29 +224,29 @@ body {
 }
 
 .modal-info h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 15px;
-    color: var(--vibrant-purple);
+    color: var(--deep-charcoal);
 }
 
 .modal-info p {
-    color: #555;
+    color: #666;
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 20px;
 }
 
 .price {
-    font-size: 1.8rem;
-    font-weight: 900;
-    color: var(--neon-pink);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--clay-brown);
     margin-bottom: 25px;
 }
 
 .buy-btn {
     display: inline-block;
     padding: 15px;
-    background-color: #25d366; 
+    background-color: #25d366; /* WhatsApp Yeşili */
     color: white;
     text-decoration: none;
     border-radius: 15px;
@@ -298,21 +256,22 @@ body {
     transition: 0.3s ease;
 }
 
-.buy-btn:hover { background-color: #1cbd55; transform: translateY(-2px); }
+.buy-btn:hover {
+    background-color: #1cbd55;
+    transform: translateY(-2px);
+}
 
-/* --- FOOTER (AylizDev Özel Tasarım) --- */
+/* --- FOOTER --- */
 .footer {
     padding: 40px 10px;
     text-align: center;
     background: white;
     margin-top: 80px;
-    border-top: 2px solid #ffd0e2;
 }
 
 .footer p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     margin-bottom: 15px;
-    font-weight: 700;
 }
 
 .social-links {
@@ -322,21 +281,25 @@ body {
 }
 
 .social-links a {
-    font-size: 1.8rem;
-    color: #888;
+    font-size: 1.6rem;
+    color: #777;
     transition: 0.3s;
 }
 
 .social-links a:hover { transform: translateY(-5px); }
 .social-links a.li:hover { color: #0077b5; }
-.social-links a.gh:hover { color: #222; }
+.social-links a.gh:hover { color: #333; }
 .social-links a.ig:hover { color: #e1306c; }
 
 
-/* --- TAM MOBİL UYUMLULUK (CANDLE STİLİ: BÜYÜK 2'Lİ TAM KARE KARTLAR) --- */
+
+
+/* --- TAM MOBİL UYUMLULUK (Sihirli Dokunuşlar) --- */
+
+/* Telefon Ekranları İçin (Genişlik 600px ve altı) */
 @media (max-width: 600px) {
     
-    /* Kategori Butonları Ray Sistemi */
+    /* 1. Kategori Butonları: Yana kaydırmalı akıcı ray */
     .filter-buttons {
         justify-content: flex-start; 
         overflow-x: auto;            
@@ -350,38 +313,44 @@ body {
     .filter-btn {
         flex: 0 0 auto;              
         padding: 8px 16px;           
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
-    .filter-buttons::-webkit-scrollbar { display: none; }
-
-    /* TAM CANDLE SİTESİ GÖRÜNÜMÜ: Yan yana 2 adet dolgun, büyük ürün kartı */
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 12px; 
+    .filter-buttons::-webkit-scrollbar {
+        display: none;
+    }
+.product-grid {
+        grid-template-columns: repeat(2, 1fr); /* Telefonda yan yana tam 2 geniş ürün */
+        gap: 12px; /* Kartların arası daha nefes alan, şık bir boşluk */
         margin-top: 15px;
     }
 
-    /* Kartın Çerçeveli ve Tam Kare Kalmasını Sağlayan Sihirli Ayar */
+    /* 3. Mobil Çerçeveli Kare Kart Ayarları */
     .product-card {
-        padding: 6px; 
-        border-radius: 14px;
-        border: 2px solid #ffd0e2; /* Mobilde de 2px renkli çerçeve aktif */
-        aspect-ratio: 1 / 1 !important; /* KARTIN DIŞINI KARE YAPAR */
+        padding: 6px; /* İç boşluğu kart büyüdüğü için bir tık artırdık */
+        border-radius: 14px; /* Köşeler biraz daha tatlı oval */
+        border: 2px solid #e6dfd3; /* İstediğin o 2px asil çerçeve */
+        
+        /* Kartın bütünsel olarak tam bir kare formunda kalmasını sağlıyoruz */
+        aspect-ratio: 1 / 1 !important; 
+        
         display: flex;
         flex-direction: column;
         justify-content: space-between; 
         overflow: hidden;
     }
 
+    /* 4. Kart İçindeki Fotoğrafın Yeni Boyut Ayarı */
     .product-card img {
         width: 100%;
-        height: 70% !important; /* Görsel alanını büyüttük (Candle esintisi) */
+        /* Kart büyüdüğü için fotoğrafı %70 yapıp alt kısma yazılar için konforlu yer bırakıyoruz */
+        height: 70% !important; 
         object-fit: cover;     
         border-radius: 10px;   
         aspect-ratio: auto !important; 
     }
 
+    /* 5. Kartın Altındaki Yazı Alanı (Büyüyen Karta Göre Optimize Edildi) */
     .product-card div {
         margin-top: 4px !important; 
         padding: 0 4px !important;
@@ -391,35 +360,37 @@ body {
         justify-content: center; 
     }
 
-    /* Yazı Optimizasyonu */
+    /* Yazı boyutlarını kart büyüdüğü için bir tık artırdık, tam Candle sitesindeki gibi okunaklı oldu */
     .product-card h3 {
-        font-size: 0.8rem !important; 
-        font-weight: 700;
+        font-size: 0.8rem !important; /* Artık daha net okunuyor */
+        font-weight: 500;
         line-height: 1.2;
         white-space: nowrap;          
         overflow: hidden;             
         text-overflow: ellipsis; 
+        color: var(--deep-charcoal);
     }
     
     .product-card p {
-        font-size: 0.8rem !important; 
+        font-size: 0.8rem !important; /* Fiyat alanı da başlıkla uyumlu büyüdü */
         margin-top: 2px !important;
+        font-weight: 700;
+        color: var(--clay-brown);
     }
-
-    /* Diğer Mobil Alanlar */
+    /* 6. Diğer Mobil Detaylar */
     .header {
-        padding: 20px 5%;
+        padding: 15px 5%;
         flex-direction: column;       
         gap: 12px;
     }
 
-    .nav-links {
-        width: 100%;
-        justify-content: center;
+    .logo {
+        font-size: 1.3rem;            
     }
 
-    .logo { font-size: 1.5rem; }
-    .intro-text { font-size: 2rem; }
+    .intro-text {
+        font-size: 1.8rem;            
+    }
     
     .modal-content {
         margin: 20% auto;
@@ -427,6 +398,13 @@ body {
         width: 92%;
     }
     
-    .modal-body { flex-direction: column; gap: 15px; }
-    #modalImage { max-width: 100%; height: 220px; }
+    .modal-body {
+        flex-direction: column; 
+        gap: 15px;
+    }
+    
+    #modalImage { 
+        max-width: 100%; 
+        height: 220px; 
+    }
 }
