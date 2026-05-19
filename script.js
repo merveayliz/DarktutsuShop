@@ -1,4 +1,3 @@
-// --- GLOBAL PRODUCTS DATA ($ and English Incense Shop) ---
 const products = [
     { id: 1, name: "Sandalwood Incense Sticks", category: "sticks", desc: "Premium natural sandalwood sticks. Perfect for meditation, deep relaxation, and mental clarity.", price: "$14.00", img: "img/1.jpg" },
     { id: 2, name: "Lavender Peace Cones", category: "cones", desc: "Soothing lavender backflow cones. Creates a beautiful waterfall d烟 effect while calming your mind.", price: "$12.00", img: "img/2.jpg" },
